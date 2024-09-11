@@ -1,4 +1,4 @@
-package com.agendaedu.schedule_service.controllers.dto.request;
+package com.agendaedu.schedule_service.domain.user.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

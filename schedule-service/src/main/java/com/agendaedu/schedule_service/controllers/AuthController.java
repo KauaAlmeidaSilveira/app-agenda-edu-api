@@ -1,10 +1,10 @@
 package com.agendaedu.schedule_service.controllers;
 
-import com.agendaedu.schedule_service.controllers.dto.request.ForgotPasswordResquestDTO;
-import com.agendaedu.schedule_service.controllers.dto.request.LoginRequestDTO;
-import com.agendaedu.schedule_service.controllers.dto.request.RegisterRequestDTO;
-import com.agendaedu.schedule_service.controllers.dto.response.LoginResponseDTO;
-import com.agendaedu.schedule_service.controllers.dto.response.RegisterReponseDTO;
+import com.agendaedu.schedule_service.domain.user.dto.request.ForgotPasswordResquestDTO;
+import com.agendaedu.schedule_service.domain.user.dto.request.LoginRequestDTO;
+import com.agendaedu.schedule_service.domain.user.dto.request.RegisterRequestDTO;
+import com.agendaedu.schedule_service.domain.user.dto.response.LoginResponseDTO;
+import com.agendaedu.schedule_service.domain.user.dto.response.RegisterReponseDTO;
 import com.agendaedu.schedule_service.services.AuthService;
 import com.agendaedu.schedule_service.services.UserService;
 import jakarta.validation.Valid;

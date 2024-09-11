@@ -1,5 +1,6 @@
 package com.agendaedu.schedule_service.domain.user;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,9 @@ import java.util.Objects;
 @AllArgsConstructor
 public class UserDTO {
     private Long id;
+    @NotBlank(message = "O email é obrigatório")
     private String email;
+    @NotBlank(message = "A senha é obrigatória")
     private String password;
     private String name;
     private String role;

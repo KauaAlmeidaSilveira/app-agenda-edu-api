@@ -1,4 +1,4 @@
-INSERT INTO tb_user (email, name, password, role) VALUES ('kaua@gmail.com', 'Kauã Almeida', '$2a$10$enPY3JfMQZEb3cF7mznk.OoQa7V0sq6uvSxnm7MlFclpD5JGVV6Nq', 'ADMIN');
+INSERT INTO tb_user (email, name, password, role) VALUES ('kaua@drummond.com.br', 'Kauã Almeida', '$2a$10$enPY3JfMQZEb3cF7mznk.OoQa7V0sq6uvSxnm7MlFclpD5JGVV6Nq', 'ADMIN');
 
 INSERT INTO tb_course (name, degree) VALUES ('Mat A', 'INFANTIL');
 INSERT INTO tb_course (name, degree) VALUES ('Jardim A', 'INFANTIL');

@@ -1,12 +1,12 @@
 package com.agendaedu.schedule_service.services;
 
-import com.agendaedu.schedule_service.controllers.dto.request.LoginRequestDTO;
-import com.agendaedu.schedule_service.controllers.dto.request.RegisterRequestDTO;
-import com.agendaedu.schedule_service.controllers.dto.response.LoginResponseDTO;
-import com.agendaedu.schedule_service.controllers.dto.response.RegisterReponseDTO;
 import com.agendaedu.schedule_service.domain.user.User;
 import com.agendaedu.schedule_service.domain.user.UserDTO;
 import com.agendaedu.schedule_service.domain.user.UserRole;
+import com.agendaedu.schedule_service.domain.user.dto.request.LoginRequestDTO;
+import com.agendaedu.schedule_service.domain.user.dto.request.RegisterRequestDTO;
+import com.agendaedu.schedule_service.domain.user.dto.response.LoginResponseDTO;
+import com.agendaedu.schedule_service.domain.user.dto.response.RegisterReponseDTO;
 import com.agendaedu.schedule_service.infra.security.TokenService;
 import com.agendaedu.schedule_service.repositories.UserRepository;
 import com.agendaedu.schedule_service.services.exceptions.InvalidCredentialsException;
