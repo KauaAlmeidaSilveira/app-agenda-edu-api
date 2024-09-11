@@ -4,9 +4,7 @@ import com.agendaedu.schedule_service.domain.booking.BookingEntity;
 import com.agendaedu.schedule_service.projections.BookingProjection;
 import com.agendaedu.schedule_service.projections.BookingResponseProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -21,11 +19,9 @@ public interface BookingRepository extends JpaRepository<BookingEntity, Long> {
                         WHERE
                             LOCAL_ID = :localId
                         AND
-                            DATE = :date
+                            DATE >= :date
                         AND
                             is_disabled = 0
-                        AND
-                            is_expired = 0
                     """
     )
     List<BookingProjection> findBookingByDateAndLocal(LocalDate date, Long localId);
@@ -49,29 +45,16 @@ public interface BookingRepository extends JpaRepository<BookingEntity, Long> {
                         WHERE
                             b.user_id = :id
                         AND
-                            b.is_disabled = 0
+                            b.date >= :date
                         AND
-                            b.is_expired = 0
+                            b.is_disabled = 0
                         ORDER BY
                             b.date ASC,
                             b.check_in ASC,
                             b.check_out ASC;
                     """
     )
-    List<BookingResponseProjection> findByUserId(Long id);
-
-
-    @Transactional
-    @Modifying
-    @Query(nativeQuery = true,
-            value =
-                    """
-                                UPDATE tb_booking
-                                SET is_expired = 1
-                                WHERE date < :currentDate
-                            """
-    )
-    void expireOldBookings(LocalDate currentDate);
+    List<BookingResponseProjection> findByUserId(Long id, LocalDate date);
 
 }
 

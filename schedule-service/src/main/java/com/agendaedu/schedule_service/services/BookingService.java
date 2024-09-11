@@ -3,7 +3,6 @@ package com.agendaedu.schedule_service.services;
 import com.agendaedu.schedule_service.domain.booking.BookingDTO;
 import com.agendaedu.schedule_service.domain.booking.BookingEntity;
 import com.agendaedu.schedule_service.domain.booking.IsDisabled;
-import com.agendaedu.schedule_service.domain.booking.IsExpired;
 import com.agendaedu.schedule_service.domain.course.Course;
 import com.agendaedu.schedule_service.domain.local.Local;
 import com.agendaedu.schedule_service.domain.user.User;
@@ -11,7 +10,6 @@ import com.agendaedu.schedule_service.projections.BookingResponseProjection;
 import com.agendaedu.schedule_service.repositories.BookingRepository;
 import com.agendaedu.schedule_service.services.exceptions.InvalidCredentialsException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,18 +41,12 @@ public class BookingService {
             LocalTime.parse("19:00:00")
     ));
 
-    @Scheduled(cron = "0 0 0 * * ?")
-    @Transactional
-    public void updateExpiredBookings() {
-        this.bookingRepository.expireOldBookings(LocalDate.now());
-    }
-
     @Transactional
     public BookingDTO insert(BookingDTO bookingDTO) {
 
-        ZonedDateTime inGMT3 = ZonedDateTime.now(ZoneId.of("America/Sao_Paulo"));
+//        ZonedDateTime inGMT3 = ZonedDateTime.now(ZoneId.of("America/Sao_Paulo"));
 
-        if (bookingDTO.getDate().isBefore(inGMT3.toLocalDate())) {
+        if (bookingDTO.getDate().isBefore(LocalDate.now(ZoneId.of("America/Sao_Paulo")))) {
             throw new DateTimeException("A data deve ser futura !!");
         }
 
@@ -64,7 +56,6 @@ public class BookingService {
         booking.setCourse(new Course(courseService.findById(bookingDTO.getCourseId())));
         booking.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         booking.setIsDisabled(IsDisabled.FALSE);
-        booking.setIsExpired(IsExpired.FALSE);
         booking.setCreatedAt(Timestamp.valueOf(LocalDateTime.now().minusHours(3)));
 
         booking = this.bookingRepository.save(booking);
@@ -98,7 +89,7 @@ public class BookingService {
     @Transactional(readOnly = true)
     public List<BookingResponseProjection> findBookingsByUserId() {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return this.bookingRepository.findByUserId(user.getId());
+        return this.bookingRepository.findByUserId(user.getId(), LocalDate.now(ZoneId.of("America/Sao_Paulo")));
     }
 
     @Transactional(readOnly = true)

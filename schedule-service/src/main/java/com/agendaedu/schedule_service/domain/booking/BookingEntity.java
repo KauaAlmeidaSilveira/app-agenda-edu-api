@@ -32,8 +32,6 @@ public class BookingEntity {
 
     private IsDisabled isDisabled;
 
-    private IsExpired isExpired;
-
     private Timestamp createdAt;
 
     @ManyToOne
@@ -48,6 +46,5 @@ public class BookingEntity {
         this.checkIn = bookingDTO.getCheckIn();
         this.checkOut = bookingDTO.getCheckOut();
         this.isDisabled = bookingDTO.getIsDisabled();
-        this.isExpired = bookingDTO.getIsExpired();
     }
 }

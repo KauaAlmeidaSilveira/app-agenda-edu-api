@@ -36,7 +36,6 @@ public class BookingDTO {
     private Long courseId;
 
     private IsDisabled isDisabled;
-    private IsExpired isExpired;
 
     private Long userId;
 
@@ -48,7 +47,6 @@ public class BookingDTO {
         this.checkOut = bookingEntity.getCheckOut();
         this.courseId = bookingEntity.getCourse().getId();
         this.isDisabled = bookingEntity.getIsDisabled();
-        this.isExpired = bookingEntity.getIsExpired();
         this.userId = bookingEntity.getUser().getId();
     }
 
