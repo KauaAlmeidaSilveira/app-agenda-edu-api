@@ -7,7 +7,7 @@ public record RegisterRequestDTO(
         @NotBlank(message = "Email é obrigatório")
         @Pattern(
                 regexp = "^[A-Za-z0-9._%+-]+@drummond\\.com\\.br$",
-                message = "Utilize o email institucional da Instituição"
+                message = "Utilize o email da Instituição"
         )
         String email,
         @NotBlank(message = "Senha é obrigatória")
