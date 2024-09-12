@@ -1,6 +1,8 @@
-package com.agendaedu.schedule_service.domain.course;
+package com.agendaedu.schedule_service.domain;
 
-import com.agendaedu.schedule_service.domain.booking.BookingEntity;
+import com.agendaedu.schedule_service.domain.dto.CourseDTO;
+import com.agendaedu.schedule_service.domain.dto.enums.CourseDegree;
+import com.agendaedu.schedule_service.domain.dto.enums.IsDisabled;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +25,8 @@ public class Course {
     private String name;
     @Enumerated(EnumType.STRING)
     private CourseDegree degree;
+
+    private IsDisabled isDisabled;
 
     @OneToMany(mappedBy = "course")
     private List<BookingEntity> bookings;

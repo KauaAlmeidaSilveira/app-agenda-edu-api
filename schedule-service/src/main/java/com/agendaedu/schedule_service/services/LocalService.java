@@ -1,7 +1,7 @@
 package com.agendaedu.schedule_service.services;
 
-import com.agendaedu.schedule_service.domain.local.Local;
-import com.agendaedu.schedule_service.domain.local.LocalDTO;
+import com.agendaedu.schedule_service.domain.Local;
+import com.agendaedu.schedule_service.domain.dto.LocalDTO;
 import com.agendaedu.schedule_service.repositories.LocalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.agendaedu.schedule_service.domain.booking;
+package com.agendaedu.schedule_service.domain.dto.enums;
 
 public enum IsDisabled {
     FALSE("False"),

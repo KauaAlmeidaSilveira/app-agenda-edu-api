@@ -1,5 +1,6 @@
-package com.agendaedu.schedule_service.domain.local;
+package com.agendaedu.schedule_service.domain.dto;
 
+import com.agendaedu.schedule_service.domain.Local;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

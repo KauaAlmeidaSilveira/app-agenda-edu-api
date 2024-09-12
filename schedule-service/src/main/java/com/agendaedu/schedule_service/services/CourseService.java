@@ -1,9 +1,9 @@
 package com.agendaedu.schedule_service.services;
 
-import com.agendaedu.schedule_service.domain.course.Course;
-import com.agendaedu.schedule_service.domain.course.CourseDTO;
-import com.agendaedu.schedule_service.domain.course.CourseDegree;
-import com.agendaedu.schedule_service.domain.course.CoursesGroupDTO;
+import com.agendaedu.schedule_service.domain.Course;
+import com.agendaedu.schedule_service.domain.dto.CourseDTO;
+import com.agendaedu.schedule_service.domain.dto.CoursesGroupDTO;
+import com.agendaedu.schedule_service.domain.dto.enums.CourseDegree;
 import com.agendaedu.schedule_service.repositories.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

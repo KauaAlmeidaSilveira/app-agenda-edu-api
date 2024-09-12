@@ -1,6 +1,6 @@
 package com.agendaedu.schedule_service.repositories;
 
-import com.agendaedu.schedule_service.domain.booking.BookingEntity;
+import com.agendaedu.schedule_service.domain.BookingEntity;
 import com.agendaedu.schedule_service.projections.BookingProjection;
 import com.agendaedu.schedule_service.projections.BookingResponseProjection;
 import org.springframework.data.jpa.repository.JpaRepository;

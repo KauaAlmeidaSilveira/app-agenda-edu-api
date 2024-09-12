@@ -1,6 +1,8 @@
-package com.agendaedu.schedule_service.domain.user;
+package com.agendaedu.schedule_service.domain;
 
-import com.agendaedu.schedule_service.domain.booking.BookingEntity;
+import com.agendaedu.schedule_service.domain.dto.UserDTO;
+import com.agendaedu.schedule_service.domain.dto.enums.IsDisabled;
+import com.agendaedu.schedule_service.domain.dto.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,6 +12,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalTime;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -32,6 +35,14 @@ public class User implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     private UserRole role;
+
+    private IsDisabled isDisabled;
+
+    private LocalTime createdAt;
+
+    private LocalTime updatedAt;
+
+    private LocalTime disabledAt;
 
     @OneToMany(mappedBy = "user")
     private List<BookingEntity> bookingEntityList;

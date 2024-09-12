@@ -1,15 +1,13 @@
-package com.agendaedu.schedule_service.domain.booking;
+package com.agendaedu.schedule_service.domain;
 
-import com.agendaedu.schedule_service.domain.course.Course;
-import com.agendaedu.schedule_service.domain.local.Local;
-import com.agendaedu.schedule_service.domain.user.User;
+import com.agendaedu.schedule_service.domain.dto.BookingDTO;
+import com.agendaedu.schedule_service.domain.dto.enums.IsDisabled;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -32,7 +30,9 @@ public class BookingEntity {
 
     private IsDisabled isDisabled;
 
-    private Timestamp createdAt;
+    private LocalTime createdAt;
+
+    private LocalTime disabledAt;
 
     @ManyToOne
     private Local local;
@@ -45,6 +45,5 @@ public class BookingEntity {
         this.date = bookingDTO.getDate();
         this.checkIn = bookingDTO.getCheckIn();
         this.checkOut = bookingDTO.getCheckOut();
-        this.isDisabled = bookingDTO.getIsDisabled();
     }
 }

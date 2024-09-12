@@ -1,6 +1,6 @@
 package com.agendaedu.schedule_service.infra.security;
 
-import com.agendaedu.schedule_service.domain.user.User;
+import com.agendaedu.schedule_service.domain.User;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;

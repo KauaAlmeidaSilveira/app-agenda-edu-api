@@ -1,4 +1,4 @@
-package com.agendaedu.schedule_service.domain.course;
+package com.agendaedu.schedule_service.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

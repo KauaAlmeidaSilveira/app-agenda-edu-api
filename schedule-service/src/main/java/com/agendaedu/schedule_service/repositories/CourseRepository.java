@@ -1,6 +1,6 @@
 package com.agendaedu.schedule_service.repositories;
 
-import com.agendaedu.schedule_service.domain.course.Course;
+import com.agendaedu.schedule_service.domain.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

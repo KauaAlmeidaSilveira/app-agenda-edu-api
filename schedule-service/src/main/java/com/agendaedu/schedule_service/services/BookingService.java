@@ -1,11 +1,11 @@
 package com.agendaedu.schedule_service.services;
 
-import com.agendaedu.schedule_service.domain.booking.BookingDTO;
-import com.agendaedu.schedule_service.domain.booking.BookingEntity;
-import com.agendaedu.schedule_service.domain.booking.IsDisabled;
-import com.agendaedu.schedule_service.domain.course.Course;
-import com.agendaedu.schedule_service.domain.local.Local;
-import com.agendaedu.schedule_service.domain.user.User;
+import com.agendaedu.schedule_service.domain.BookingEntity;
+import com.agendaedu.schedule_service.domain.Course;
+import com.agendaedu.schedule_service.domain.Local;
+import com.agendaedu.schedule_service.domain.User;
+import com.agendaedu.schedule_service.domain.dto.BookingDTO;
+import com.agendaedu.schedule_service.domain.dto.enums.IsDisabled;
 import com.agendaedu.schedule_service.projections.BookingResponseProjection;
 import com.agendaedu.schedule_service.repositories.BookingRepository;
 import com.agendaedu.schedule_service.services.exceptions.InvalidCredentialsException;
@@ -14,8 +14,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Timestamp;
-import java.time.*;
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -44,8 +46,6 @@ public class BookingService {
     @Transactional
     public BookingDTO insert(BookingDTO bookingDTO) {
 
-//        ZonedDateTime inGMT3 = ZonedDateTime.now(ZoneId.of("America/Sao_Paulo"));
-
         if (bookingDTO.getDate().isBefore(LocalDate.now(ZoneId.of("America/Sao_Paulo")))) {
             throw new DateTimeException("A data deve ser futura !!");
         }
@@ -56,7 +56,7 @@ public class BookingService {
         booking.setCourse(new Course(courseService.findById(bookingDTO.getCourseId())));
         booking.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         booking.setIsDisabled(IsDisabled.FALSE);
-        booking.setCreatedAt(Timestamp.valueOf(LocalDateTime.now().minusHours(3)));
+        booking.setCreatedAt(LocalTime.now());
 
         booking = this.bookingRepository.save(booking);
         return new BookingDTO(booking);
@@ -81,6 +81,7 @@ public class BookingService {
         }
 
         booking.setIsDisabled(IsDisabled.TRUE);
+        booking.setDisabledAt(LocalTime.now());
         booking = this.bookingRepository.save(booking);
 
         return new BookingDTO(booking);

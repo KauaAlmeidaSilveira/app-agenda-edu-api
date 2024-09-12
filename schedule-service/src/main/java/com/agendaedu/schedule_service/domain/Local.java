@@ -1,6 +1,7 @@
-package com.agendaedu.schedule_service.domain.local;
+package com.agendaedu.schedule_service.domain;
 
-import com.agendaedu.schedule_service.domain.booking.BookingEntity;
+import com.agendaedu.schedule_service.domain.dto.LocalDTO;
+import com.agendaedu.schedule_service.domain.dto.enums.IsDisabled;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,6 +22,8 @@ public class Local {
     private Long id;
     @Column(unique = true)
     private String name;
+
+    private IsDisabled isDisabled;
 
     @OneToMany(mappedBy = "local")
     private List<BookingEntity> booking;

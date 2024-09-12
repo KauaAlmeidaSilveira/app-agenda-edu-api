@@ -1,5 +1,6 @@
-package com.agendaedu.schedule_service.domain.booking;
+package com.agendaedu.schedule_service.domain.dto;
 
+import com.agendaedu.schedule_service.domain.BookingEntity;
 import com.agendaedu.schedule_service.projections.BookingProjection;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -35,8 +36,6 @@ public class BookingDTO {
     @Min(value = 1, message = "O curso é obrigatório")
     private Long courseId;
 
-    private IsDisabled isDisabled;
-
     private Long userId;
 
     public BookingDTO(BookingEntity bookingEntity) {
@@ -46,7 +45,6 @@ public class BookingDTO {
         this.checkIn = bookingEntity.getCheckIn();
         this.checkOut = bookingEntity.getCheckOut();
         this.courseId = bookingEntity.getCourse().getId();
-        this.isDisabled = bookingEntity.getIsDisabled();
         this.userId = bookingEntity.getUser().getId();
     }
 

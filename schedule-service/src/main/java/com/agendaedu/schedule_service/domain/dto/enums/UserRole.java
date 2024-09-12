@@ -1,4 +1,4 @@
-package com.agendaedu.schedule_service.domain.user;
+package com.agendaedu.schedule_service.domain.dto.enums;
 
 public enum UserRole {
     ADMIN("admin"),

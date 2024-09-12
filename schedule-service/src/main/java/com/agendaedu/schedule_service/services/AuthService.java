@@ -1,12 +1,13 @@
 package com.agendaedu.schedule_service.services;
 
-import com.agendaedu.schedule_service.domain.user.User;
-import com.agendaedu.schedule_service.domain.user.UserDTO;
-import com.agendaedu.schedule_service.domain.user.UserRole;
-import com.agendaedu.schedule_service.domain.user.dto.request.LoginRequestDTO;
-import com.agendaedu.schedule_service.domain.user.dto.request.RegisterRequestDTO;
-import com.agendaedu.schedule_service.domain.user.dto.response.LoginResponseDTO;
-import com.agendaedu.schedule_service.domain.user.dto.response.RegisterReponseDTO;
+import com.agendaedu.schedule_service.domain.User;
+import com.agendaedu.schedule_service.domain.dto.UserDTO;
+import com.agendaedu.schedule_service.domain.dto.enums.IsDisabled;
+import com.agendaedu.schedule_service.domain.dto.enums.UserRole;
+import com.agendaedu.schedule_service.domain.dto.request.LoginRequestDTO;
+import com.agendaedu.schedule_service.domain.dto.request.RegisterRequestDTO;
+import com.agendaedu.schedule_service.domain.dto.response.LoginResponseDTO;
+import com.agendaedu.schedule_service.domain.dto.response.RegisterReponseDTO;
 import com.agendaedu.schedule_service.infra.security.TokenService;
 import com.agendaedu.schedule_service.repositories.UserRepository;
 import com.agendaedu.schedule_service.services.exceptions.InvalidCredentialsException;
@@ -18,6 +19,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalTime;
 
 @Service
 public class AuthService implements UserDetailsService {
@@ -73,6 +76,15 @@ public class AuthService implements UserDetailsService {
         }
 
         user.setPassword(passwordEncoder.encode(newPassword));
+        user.setUpdatedAt(LocalTime.now());
+        this.userRepository.save(user);
+    }
+
+    @Transactional
+    public void updateToIsDisabled(String email) {
+        User user = (User) this.loadUserByUsername(email);
+        user.setIsDisabled(IsDisabled.TRUE);
+        user.setDisabledAt(LocalTime.now());
         this.userRepository.save(user);
     }
 

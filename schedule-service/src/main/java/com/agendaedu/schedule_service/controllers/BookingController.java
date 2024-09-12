@@ -1,6 +1,6 @@
 package com.agendaedu.schedule_service.controllers;
 
-import com.agendaedu.schedule_service.domain.booking.BookingDTO;
+import com.agendaedu.schedule_service.domain.dto.BookingDTO;
 import com.agendaedu.schedule_service.projections.BookingResponseProjection;
 import com.agendaedu.schedule_service.services.BookingService;
 import jakarta.validation.Valid;

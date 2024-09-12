@@ -1,5 +1,7 @@
-package com.agendaedu.schedule_service.domain.user;
+package com.agendaedu.schedule_service.domain.dto;
 
+import com.agendaedu.schedule_service.domain.User;
+import com.agendaedu.schedule_service.domain.dto.enums.UserRole;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

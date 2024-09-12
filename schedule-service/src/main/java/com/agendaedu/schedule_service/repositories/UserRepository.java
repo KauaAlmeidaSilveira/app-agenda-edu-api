@@ -1,6 +1,6 @@
 package com.agendaedu.schedule_service.repositories;
 
-import com.agendaedu.schedule_service.domain.user.User;
+import com.agendaedu.schedule_service.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,5 +1,7 @@
-package com.agendaedu.schedule_service.domain.course;
+package com.agendaedu.schedule_service.domain.dto;
 
+import com.agendaedu.schedule_service.domain.Course;
+import com.agendaedu.schedule_service.domain.dto.enums.CourseDegree;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
