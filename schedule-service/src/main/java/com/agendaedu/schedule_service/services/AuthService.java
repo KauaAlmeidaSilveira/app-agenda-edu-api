@@ -1,5 +1,6 @@
 package com.agendaedu.schedule_service.services;
 
+import com.agendaedu.schedule_service.config.TimeConfig;
 import com.agendaedu.schedule_service.domain.User;
 import com.agendaedu.schedule_service.domain.dto.UserDTO;
 import com.agendaedu.schedule_service.domain.dto.enums.IsDisabled;
@@ -76,7 +77,7 @@ public class AuthService implements UserDetailsService {
         }
 
         user.setPassword(passwordEncoder.encode(newPassword));
-        user.setUpdatedAt(LocalTime.now());
+        user.setUpdatedAt(LocalTime.now(TimeConfig.ZONE_ID));
         this.userRepository.save(user);
     }
 
@@ -84,7 +85,7 @@ public class AuthService implements UserDetailsService {
     public void updateToIsDisabled(String email) {
         User user = (User) this.loadUserByUsername(email);
         user.setIsDisabled(IsDisabled.TRUE);
-        user.setDisabledAt(LocalTime.now());
+        user.setDisabledAt(LocalTime.now(TimeConfig.ZONE_ID));
         this.userRepository.save(user);
     }
 

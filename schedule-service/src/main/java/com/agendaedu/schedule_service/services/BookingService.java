@@ -1,5 +1,6 @@
 package com.agendaedu.schedule_service.services;
 
+import com.agendaedu.schedule_service.config.TimeConfig;
 import com.agendaedu.schedule_service.domain.BookingEntity;
 import com.agendaedu.schedule_service.domain.Course;
 import com.agendaedu.schedule_service.domain.Local;
@@ -56,7 +57,7 @@ public class BookingService {
         booking.setCourse(new Course(courseService.findById(bookingDTO.getCourseId())));
         booking.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         booking.setIsDisabled(IsDisabled.FALSE);
-        booking.setCreatedAt(LocalTime.now());
+        booking.setCreatedAt(LocalTime.now(TimeConfig.ZONE_ID));
 
         booking = this.bookingRepository.save(booking);
         return new BookingDTO(booking);
@@ -81,7 +82,7 @@ public class BookingService {
         }
 
         booking.setIsDisabled(IsDisabled.TRUE);
-        booking.setDisabledAt(LocalTime.now());
+        booking.setDisabledAt(LocalTime.now(TimeConfig.ZONE_ID));
         booking = this.bookingRepository.save(booking);
 
         return new BookingDTO(booking);

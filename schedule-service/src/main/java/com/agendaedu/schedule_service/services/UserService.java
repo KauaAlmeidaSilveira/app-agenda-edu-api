@@ -1,5 +1,6 @@
 package com.agendaedu.schedule_service.services;
 
+import com.agendaedu.schedule_service.config.TimeConfig;
 import com.agendaedu.schedule_service.domain.User;
 import com.agendaedu.schedule_service.domain.dto.UserDTO;
 import com.agendaedu.schedule_service.domain.dto.enums.IsDisabled;
@@ -20,7 +21,7 @@ public class UserService {
     @Transactional
     public UserDTO insert(UserDTO userDTO) {
         User user = new User(userDTO);
-        user.setCreatedAt(LocalTime.now());
+        user.setCreatedAt(LocalTime.now(TimeConfig.ZONE_ID));
         user.setIsDisabled(IsDisabled.FALSE);
         return new UserDTO(this.repository.save(user));
     }
