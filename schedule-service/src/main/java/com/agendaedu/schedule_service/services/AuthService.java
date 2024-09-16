@@ -21,6 +21,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Service
@@ -77,7 +78,7 @@ public class AuthService implements UserDetailsService {
         }
 
         user.setPassword(passwordEncoder.encode(newPassword));
-        user.setUpdatedAt(LocalTime.now(TimeConfig.ZONE_ID));
+        user.setUpdatedAt(LocalDateTime.now(TimeConfig.ZONE_ID));
         this.userRepository.save(user);
     }
 
@@ -85,7 +86,7 @@ public class AuthService implements UserDetailsService {
     public void updateToIsDisabled(String email) {
         User user = (User) this.loadUserByUsername(email);
         user.setIsDisabled(IsDisabled.TRUE);
-        user.setDisabledAt(LocalTime.now(TimeConfig.ZONE_ID));
+        user.setDisabledAt(LocalDateTime.now(TimeConfig.ZONE_ID));
         this.userRepository.save(user);
     }
 

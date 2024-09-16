@@ -12,6 +12,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Collection;
 import java.util.List;
@@ -38,11 +39,11 @@ public class User implements UserDetails {
 
     private IsDisabled isDisabled;
 
-    private LocalTime createdAt;
+    private LocalDateTime createdAt;
 
-    private LocalTime updatedAt;
+    private LocalDateTime updatedAt;
 
-    private LocalTime disabledAt;
+    private LocalDateTime disabledAt;
 
     @OneToMany(mappedBy = "user")
     private List<BookingEntity> bookingEntityList;

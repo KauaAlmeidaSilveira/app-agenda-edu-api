@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Service
@@ -21,7 +22,7 @@ public class UserService {
     @Transactional
     public UserDTO insert(UserDTO userDTO) {
         User user = new User(userDTO);
-        user.setCreatedAt(LocalTime.now(TimeConfig.ZONE_ID));
+        user.setCreatedAt(LocalDateTime.now(TimeConfig.ZONE_ID));
         user.setIsDisabled(IsDisabled.FALSE);
         return new UserDTO(this.repository.save(user));
     }
