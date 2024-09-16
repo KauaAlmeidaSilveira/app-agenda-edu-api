@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Setter
@@ -30,9 +31,9 @@ public class BookingEntity {
 
     private IsDisabled isDisabled;
 
-    private LocalTime createdAt;
+    private LocalDateTime createdAt;
 
-    private LocalTime disabledAt;
+    private LocalDateTime disabledAt;
 
     @ManyToOne
     private Local local;

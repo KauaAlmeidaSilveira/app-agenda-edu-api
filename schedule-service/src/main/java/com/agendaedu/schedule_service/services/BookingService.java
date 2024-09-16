@@ -15,10 +15,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.DateTimeException;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -57,7 +54,7 @@ public class BookingService {
         booking.setCourse(new Course(courseService.findById(bookingDTO.getCourseId())));
         booking.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         booking.setIsDisabled(IsDisabled.FALSE);
-        booking.setCreatedAt(LocalTime.now(TimeConfig.ZONE_ID));
+        booking.setCreatedAt(LocalDateTime.now(TimeConfig.ZONE_ID));
 
         booking = this.bookingRepository.save(booking);
         return new BookingDTO(booking);
@@ -82,7 +79,7 @@ public class BookingService {
         }
 
         booking.setIsDisabled(IsDisabled.TRUE);
-        booking.setDisabledAt(LocalTime.now(TimeConfig.ZONE_ID));
+        booking.setDisabledAt(LocalDateTime.now(TimeConfig.ZONE_ID));
         booking = this.bookingRepository.save(booking);
 
         return new BookingDTO(booking);
