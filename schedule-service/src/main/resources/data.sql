@@ -1,4 +1,4 @@
-INSERT INTO tb_user (email, name, password, role, created_at) VALUES ('kaua@gmail.com', 'Kauã Almeida', '$2a$10$enPY3JfMQZEb3cF7mznk.OoQa7V0sq6uvSxnm7MlFclpD5JGVV6Nq', 'ADMIN', '12:00:00');
+INSERT INTO tb_user (email, name, password, role, created_at) VALUES ('kaua@gmail.com', 'Kauã Almeida', '$2a$10$enPY3JfMQZEb3cF7mznk.OoQa7V0sq6uvSxnm7MlFclpD5JGVV6Nq', 'ADMIN', '2004-11-20 12:00:00');
 
 INSERT INTO tb_course (name, degree, is_disabled) VALUES ('Mat A', 'INFANTIL', 0);
 INSERT INTO tb_course (name, degree, is_disabled) VALUES ('Jardim A', 'INFANTIL', 0);
