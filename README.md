@@ -1,7 +1,9 @@
 <h1 align="center" style="font-weight: bold;">AgendaEdu API 💻</h1>
 
 <p align="center">
-    <b>API de backend para o sistema de agendamento de salas, gerenciando autenticação e agendamentos.</b>
+    <b>O "AgendaEdu" é um sistema de agendamento de salas para instituições educacionais, permitindo que professores e outros funcionários reservem espaços como salas de aula, laboratórios, teatro e auditórios.</b>
+    <br><br>
+    <b>API do backend para o sistema de agendamento de salas, gerenciando autenticação e agendamentos.</b> 
 </p>
 
 <h2 id="technologies">💻 Technologies</h2>
