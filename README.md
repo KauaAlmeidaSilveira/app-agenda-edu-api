@@ -1,23 +1,13 @@
-<h1 align="center" style="font-weight: bold;">AgendaEdu API 💻</h1>
+# AgendaEdu API 💻
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 
 <p align="center">
     <b>O "AgendaEdu" é um sistema de agendamento de salas para instituições educacionais, permitindo que professores e outros funcionários reservem espaços como salas de aula, laboratórios, teatro e auditórios.</b>
     <br><br>
     <b>API do backend para o sistema de agendamento de salas, gerenciando autenticação e agendamentos.</b> 
 </p>
-
-<h2 id="technologies">💻 Technologies</h2>
-
-- Java
-- Spring Boot
-- PostgreSQL
-- Docker
-
-<h2>🚀 Pré requisitos</h3>
-
-- [Java 17](https://www.oracle.com/java/technologies/javase-jdk17-downloads.html)
-- [Maven](https://maven.apache.org/download.cgi)
-- [Git](https://git-scm.com/)
 
 <h2 id="routes">📍 API Endpoints</h2>
 ​
@@ -39,7 +29,7 @@ Aqui estão listadas as principais rotas da API:
 | `GET`   | `/locals`                                     | Retorna a lista de locais disponíveis.          |
 | `GET`   | `/courses`                                    | Retorna a lista de cursos.                      |
 
-## 🤝 Collaborators
+## 🤝 Colaboradoes
 
 <table>
   <tr>
