@@ -19,7 +19,7 @@ public interface BookingRepository extends JpaRepository<BookingEntity, Long> {
                         WHERE
                             LOCAL_ID = :localId
                         AND
-                            DATE >= :date
+                            DATE = :date
                         AND
                             is_disabled = 0
                     """
